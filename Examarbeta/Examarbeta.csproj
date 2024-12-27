@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\Examarbeta.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\Examarbeta.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net8.0\Examarbeta.MvcApplicationPartsAssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\Examarbeta.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\net8.0\ApiEndpoints.json" />
+    <Content Include="obj\Debug\net8.0\EndpointInfo\Examarbeta_default.json" />
+    <Content Include="obj\Debug\net8.0\EndpointInfo\Examarbeta_delivery.json" />
+    <Content Include="obj\Debug\net8.0\EndpointInfo\Examarbeta_management.json" />
+    <Content Include="obj\Debug\net8.0\Examarbeta.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.endpoints.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.development.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.pack.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.references.upToDateCheck.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.removed.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.upToDateCheck.txt" />
+    <Content Include="obj\Examarbeta.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms" Version="14.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UmbracoM\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="obj\Debug\net8.0\apphost.exe" />
+    <None Include="obj\Debug\net8.0\EndpointInfo\Examarbeta.OpenApiFiles.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.assets.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net8.0\Examarbeta.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.csproj.Up2Date" />
+    <None Include="obj\Debug\net8.0\Examarbeta.dll" />
+    <None Include="obj\Debug\net8.0\Examarbeta.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\Examarbeta.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net8.0\Examarbeta.pdb" />
+    <None Include="obj\Debug\net8.0\Examarbeta.RazorAssemblyInfo.cache" />
+    <None Include="obj\Debug\net8.0\refint\Examarbeta.dll" />
+    <None Include="obj\Debug\net8.0\ref\Examarbeta.dll" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.build.Examarbeta.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Examarbeta.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Examarbeta.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.Examarbeta.Microsoft.AspNetCore.StaticWebAssetEndpoints.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.Examarbeta.Microsoft.AspNetCore.StaticWebAssets.props" />
+    <None Include="obj\Examarbeta.csproj.nuget.g.props" />
+    <None Include="obj\Examarbeta.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
+
+</Project>

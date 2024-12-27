@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+@{ var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); }
+
+<header>
+    <div class="conainer">
+        <div id="navbar">
+            <nav class="nav-menu">
+                <ul>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    
+                    @if (selection?.Length > 0)
+                    {
+                        @foreach (var item in selection)
+                        {
+                            <li class="@(item.IsAncestorOrSelf(Model) ? "nva-link activ" : "nav-link")">
+                                <a href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </nav>
+        </div>
+        <div class="search">
+            <i class="fa-regular fa-magnifying-galss"></i>
+        </div>
+
+    </div>
+</header>
+
+
+

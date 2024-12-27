@@ -1,0 +1,39 @@
+﻿@* @model IEnumerable<Examarbeta.Models.ViewModels.EventItemViewModel> *@
+
+@using System.Globalization
+@using Examarbeta.Models.ViewModels
+@model IEnumerable<EventItemViewModel>
+
+@if (Model.Any())
+{
+    // TODO: Denna delen skall vara tvåspråkig och den skall inte kunna justeras av redaktören
+    <section class="section-cc">
+        <div class="event-title">
+            <h1>@(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Våra event" : "Our Events")</h1>
+        </div>
+        <div class="event-section">
+            @foreach (var eventItem in Model)
+            {
+                <div class="event-card">
+                    <img src="@eventItem.EventImage" alt="@eventItem.AltImageText" class="event-image" />
+                    <div class="event-info">
+                        <div class="basic-info">
+                         
+                            <h3>@eventItem.Title</h3>
+                        </div>
+                        <div class="event-sum">
+                            <div class="event-description">
+                                <p class="text-gray30">@Html.Raw(Examarbeta.Helperfunction.HtmlHelperExtensions.RemoveHtmlTags(eventItem.EventDescription ?? string.Empty))</p>
+                            </div>
+                        </div>
+                        <a class="btn" href="@eventItem.EventUrl">@(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Gå till eventet" : "Go to Event")</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+else
+{
+    <p>@(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Inga event hittades." : "No events found.")</p>
+}

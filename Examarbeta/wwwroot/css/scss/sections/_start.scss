@@ -1,0 +1,62 @@
+﻿
+body {
+    background-color: var(--color-white);
+    margin: 0 auto;
+    width: 100%;
+
+    .container {
+        width: 100%;
+
+        @include tablet {
+            /*max-width: 720px;*/
+            background-color: var(--color-white);
+
+            .Titel {
+                color: var(--color-orange-1);
+            }
+
+            .Date {
+                color: var(--color-orange-5);
+            }
+        }
+
+        @include laptop {
+            /*max-width: 1120px;*/
+            background-color: var(--color-white);
+
+            .Titel {
+                color: var(--color-orange-8);
+            }
+
+            .Date {
+                color: var(--color-orange-3);
+            }
+        }
+
+        @include desktop {
+            /*max-width: 1320px;*/
+            background-color: var(--color-white);
+
+            .Titel {
+                color: var(--color-orange-5);
+            }
+
+            .Date {
+                color: var(--color-whiteshades-4);
+            }
+        }
+
+        @include ultra-wide {
+            /*max-width: 1400px;*/
+            background-color: var(--color-white);
+
+            .Titel {
+                color: var(--color-green-2);
+            }
+
+            .Date {
+                color: var(--color-darkgreen-3);
+            }
+        }
+    }
+}

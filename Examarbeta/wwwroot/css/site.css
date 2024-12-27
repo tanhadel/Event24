@@ -1,0 +1,242 @@
+﻿@charset "UTF-8";
+/* Grundläggande header */
+header {
+  background-color: #a38383;
+  padding: 20px 0;
+}
+
+/* Container för navbaren och sökfältet */
+.conainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Navbar */
+#navbar {
+  width: 100%;
+  text-align: center;
+}
+
+/* Styling för nav-menu */
+.nav-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu li {
+  margin: 0 10px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+  background-color: dimgrey;
+}
+
+.search {
+  margin-left: 20px;
+}
+
+.about-us-image-container {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* Grundläggande header */
+.about-us-section header {
+  background-color: #a38383; /* Samma färg som på startsidan */
+  padding: 20px 0;
+}
+
+/* Container för content och navbar */
+.about-us-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Styling för nav-menu */
+.about-us-section #navbar {
+  width: 100%;
+  text-align: center;
+}
+
+/* Styling för nav-menu */
+.about-us-section .nav-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.about-us-section .nav-menu li {
+  margin: 0 10px;
+}
+
+.about-us-section .nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+/* Hover-effekt för länkar */
+.about-us-section .nav-menu a:hover {
+  background-color: dimgrey;
+}
+
+/* Styling för About Us content */
+/* Grundläggande header-styling för About-sidan */
+.about-us-section header {
+  background-color: transparent; /* Ingen bakgrundsfärg */
+  color: black; /* Svart text för neutral look */
+  padding: 20px 0; /* Behåll padding för spacing */
+  text-align: center; /* Centrera texten */
+  font-size: 1.5rem; /* Justera storlek efter behov */
+  font-weight: normal; /* Normal vikt för text */
+  border: none; /* Ta bort eventuella kantlinjer */
+}
+
+/* Styling för bild */
+.about-us-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+  .about-us-section {
+    padding: 20px;
+  }
+  .about-us-section h1 {
+    font-size: 2rem;
+  }
+  .about-us-section .nav-menu ul {
+    flex-direction: column;
+  }
+  .about-us-section .nav-menu a {
+    padding: 12px 18px;
+  }
+}
+/* Styling för footer */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Minsta höjd lika med hela vyhöjden */
+}
+
+/* Main-content expanderar för att trycka footern nedåt */
+.main-content {
+  flex: 1; /* Flexibelt utrymme för att fylla mellan header och footer */
+  padding: 20px; /* Lägg till padding för innehållet */
+}
+
+/* Styling för footern */
+.footer {
+  background-color: #a38383;
+  color: white;
+  text-align: center;
+  padding: 15px 0; /* Justera för att få rätt höjd */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Container för att hålla alla footer-sektioner */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Footer logo */
+.footer-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Footer navigation */
+.footer-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer-nav li {
+  margin: 0 15px;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: #a38383; /* Hover färg matchande header */
+}
+
+/* Footer social media links */
+.footer-social {
+  display: flex;
+}
+
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #a38383; /* Hover färg matchande header */
+}
+
+/* Footer bottom (small text) */
+.footer-bottom {
+  background-color: #a38383; /* Lättare mörk färg för botten-sektionen */
+  padding: 20px 0;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Responsiv design för footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-nav ul {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .footer-social {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,35 @@
+﻿@using Examarbeta.Models.ViewModels
+@using Umbraco.Cms.Web.Common.PublishedModels
+
+@inherits UmbracoViewPage<AboutusViewModel>
+@{
+    Layout = "mainLayout.cshtml";
+
+    var aboutUsImage = Model.Content?.Value<IPublishedContent>("aboutUsImage");
+    string imageUrl = aboutUsImage?.Url() ?? string.Empty;
+    string imageAlt = Model.Content?.Value<string>("aboutUsImageAlt") ?? "About Us Image";
+}
+
+<section class="about-us-section">
+    <header>
+        @if (Model.Content != null)
+        {
+            <h1>@Html.Raw(Model.Content.AboutUsDescription)</h1>
+        }
+        else
+        {
+            <h1>No content available</h1>
+        }
+    </header>
+
+    @if (!string.IsNullOrEmpty(imageUrl))
+    {
+        <figure class="about-us-image-container">
+            <img src="@imageUrl" alt="@imageAlt" />
+        </figure>
+    }
+    else
+    {
+        <p>No image available.</p>
+    }
+</section>

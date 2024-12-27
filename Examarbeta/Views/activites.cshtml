@@ -1,0 +1,26 @@
+﻿
+@using Examarbeta.Models.ViewModels
+@using System.Globalization
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<ActivitesViewModel>
+@{
+
+    Layout = "mainLayout.cshtml";
+
+    var eventImage = Model.Content.Value<IPublishedContent>("eventImage");
+
+    var currentCulture = CultureInfo.CurrentUICulture.Name;
+}
+<div class="container">
+    <div class="section-cc">
+        <!-- Header för Aktiviteter -->
+       
+        <div class="activities-header">
+            <h2>@Model.Content.EventsInfo</h2>
+            <p class="text-gray35">@Model.Content.EventInfoLongtext</p>
+        </div>
+        <div>
+            @await Component.InvokeAsync("EventCard", new { viewType = "Compact" })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿/* Grundläggande header */
+header {
+    background-color: #a38383;
+    padding: 20px 0;
+}
+
+/* Container för navbaren och sökfältet */
+.conainer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+}
+
+/* Navbar */
+#navbar {
+    width: 100%; 
+    text-align: center; 
+}
+
+/* Styling för nav-menu */
+.nav-menu ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+}
+
+.nav-menu li {
+    margin: 0 10px; 
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block; 
+    text-align: center;
+    transition: background-color 0.3s; 
+}
+
+ 
+.nav-menu a:hover {                 
+    background-color: dimgrey;
+}
+
+
+.search {
+    margin-left: 20px;
+}

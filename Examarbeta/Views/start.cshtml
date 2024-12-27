@@ -1,0 +1,11 @@
+﻿@using Examarbeta.Models.ViewModels
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<StartPageViewModel>
+@{
+	Layout = "mainLayout.cshtml";
+}
+<h1>@Html.Raw(Model.Content.Title)</h1>
+<div class="container">
+    @await Component.InvokeAsync("EventCard")
+
+</div>
