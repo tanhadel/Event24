@@ -37,10 +37,10 @@
             <div class="event-card-description">
                 @Html.Raw(eventItem.EventDescription.RemoveHtmlTags())
             </div>
-
             <div class="info-container">
-                <a class="btn-white" href="@eventItem.EventUrl">@(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Gå till start" : "Go to Home")</a>
+                <a class="btn-white" href="/">@(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Gå till start" : "Go to Home")</a>
             </div>
+
         </div>
 
     </div>

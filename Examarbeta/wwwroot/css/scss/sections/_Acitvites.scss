@@ -1,0 +1,14 @@
+﻿.container {
+    .section-cc {
+        display: grid;
+
+        .activities-header {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            padding-bottom: 2em;
+            border-bottom: 1px solid gray;
+            background-color: var(--color-darkshades-90);
+        }
+    }
+}

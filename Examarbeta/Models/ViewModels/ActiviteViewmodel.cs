@@ -1,4 +1,5 @@
-﻿using Umbraco.Cms.Core.Web;
+﻿using System.Collections.Generic;
+using Umbraco.Cms.Core.Web;
 
 namespace Examarbeta.Models.ViewModels
 {
@@ -8,6 +9,6 @@ namespace Examarbeta.Models.ViewModels
         {
         }
 
-        public IEnumerable<EventItemViewModel> Events { get; internal set; }
+        //public IEnumerable<EventItemViewModel> Events { get; internal set; }
     }
 }

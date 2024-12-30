@@ -1,0 +1,116 @@
+﻿.section-activity {
+    background-color: var(--color-lightgrey);
+    padding: 2em;
+    border-radius: 8px;
+
+    .event-card {
+        background-color: var(--color-white);
+        border: 1px solid var(--color-whiteshades-90);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        .event-card-header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 1.5em;
+            text-align: center;
+
+            h3 {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+        }
+
+        .event-card-images {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5em;
+            padding: 1em;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 5px;
+
+                @include tablet {
+                    height: 200px;
+                }
+            }
+        }
+
+        .event-card-info {
+            padding: 1.5em;
+            display: grid;
+            grid-template-columns: 1fr;
+
+            @include tablet {
+                grid-template-columns: 1fr 1fr;
+                gap: 1em;
+            }
+
+            .info-container {
+                margin-bottom: 1em;
+
+                p {
+                    margin: 0;
+                    font-size: 1rem;
+                    color: var(--color-darkgrey);
+                }
+            }
+
+            .event-card-description {
+                grid-column: span 2; /* Stretch över båda kolumner */
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: var(--color-darkgrey);
+                margin-top: 1em;
+            }
+        }
+
+        .btn-white {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 0.75em 1.5em;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                background-color: var(--color-primary);
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+/* Responsiv styling */
+@include tablet {
+    .section-activity {
+        padding: 3em;
+    }
+}
+
+@include desktop {
+    .section-activity {
+        .event-card {
+            .event-card-info {
+                grid-template-columns: 1fr 1fr;
+                gap: 2em;
+            }
+        }
+    }
+}

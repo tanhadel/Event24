@@ -2,6 +2,7 @@
 using Examarbeta.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 
@@ -20,7 +21,7 @@ public class ActivitesController : RenderController
         var activites = CurrentPage as Activites;
         if (activites != null)
         {
-            var model = new ActivitesViewModel(activites, _umbracoContextAccessor);
+            var model = new ActiviteViewModel(activites, _umbracoContextAccessor);
             return View("activites", model);
         }
         return null!;

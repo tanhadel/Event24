@@ -240,3 +240,221 @@ header {
     flex-direction: column;
   }
 }
+.container .section-cc {
+  display: grid;
+}
+.container .section-cc .activities-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid gray;
+  background-color: var(--color-darkshades-90);
+}
+
+.section-activity {
+  background-color: var(--color-lightgrey);
+  padding: 2em;
+  border-radius: 8px;
+}
+.section-activity .event-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-whiteshades-90);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .section-activity .event-card {
+    flex-direction: row;
+  }
+}
+.section-activity .event-card .event-card-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 1.5em;
+  text-align: center;
+}
+.section-activity .event-card .event-card-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.section-activity .event-card .event-card-images {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  padding: 1em;
+}
+.section-activity .event-card .event-card-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+@media (min-width: 768px) {
+  .section-activity .event-card .event-card-images img {
+    height: 200px;
+  }
+}
+.section-activity .event-card .event-card-info {
+  padding: 1.5em;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .section-activity .event-card .event-card-info {
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+}
+.section-activity .event-card .event-card-info .info-container {
+  margin-bottom: 1em;
+}
+.section-activity .event-card .event-card-info .info-container p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-darkgrey);
+}
+.section-activity .event-card .event-card-info .event-card-description {
+  grid-column: span 2; /* Stretch över båda kolumner */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-darkgrey);
+  margin-top: 1em;
+}
+.section-activity .event-card .btn-white {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.75em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+}
+.section-activity .event-card .btn-white:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Responsiv styling */
+@media (min-width: 768px) {
+  .section-activity {
+    padding: 3em;
+  }
+}
+@media (min-width: 1200px) {
+  .section-activity .event-card .event-card-info {
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+  }
+}
+.section-cc {
+  background-color: var(--color-white);
+  padding: 1em;
+}
+.section-cc p, .section-cc h1, .section-cc h2, .section-cc h3, .section-cc h4 {
+  margin: 0;
+}
+.section-cc .event-title {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.section-cc .event-title h1 {
+  font-size: 2rem;
+  color: var(--color-darkshades-15);
+}
+@media (min-width: 768px) {
+  .section-cc {
+    margin: 60px;
+    margin-bottom: 0px;
+    padding: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .section-cc {
+    margin: 124px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+  }
+}
+.section-cc .event-section {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .section-cc .event-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.section-cc .event-section .event-card {
+  background-color: var(--color-white);
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.section-cc .event-section .event-card .event-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.section-cc .event-section .event-card .event-info {
+  display: grid;
+  gap: 24px;
+}
+.section-cc .event-section .event-card .event-info .basic-info {
+  display: grid;
+  gap: 14px;
+  font-size: 16px;
+  color: var(--color-darkshades-15);
+}
+.section-cc .event-section .event-card .event-info .basic-info h3 {
+  font-size: 1.5rem;
+  color: var(--color-darkshades-15);
+}
+.section-cc .event-section .event-card .event-info .event-sum {
+  display: grid;
+  gap: 10px;
+}
+.section-cc .event-section .event-card .event-info .event-sum .event-description {
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; /* Begränsar till 3 rader */
+  max-height: 6em; /* Justera beroende på radhöjd */
+  color: var(--color-darkshades-30);
+}
+.section-cc .event-section .event-card .event-info .event-sum .event-description p {
+  background: linear-gradient(to right, transparent, white 70%);
+  display: inline;
+  position: relative;
+  padding-right: 1em; /* Justerar utrymmet på höger sida för faden */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+.section-cc .event-section .event-card .event-info .btn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.section-cc .event-section .event-card .event-info .btn:hover {
+  background-color: var(--color-darkshades-15);
+  color: var(--color-white);
+}

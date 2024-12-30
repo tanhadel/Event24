@@ -1,5 +1,7 @@
 ﻿using Examarbeta.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using Umbraco.Cms.Core.Web;
 
 namespace Examarbeta.Views.Shared.Components.EventCard

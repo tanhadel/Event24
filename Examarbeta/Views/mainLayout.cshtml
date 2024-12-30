@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = null;
-	var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} |EventStockholm" : $"EventStockholm";
+	var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} | EventStockholm" : $"EventStockholm";
     var keywordsList = Model.Value<IEnumerable<string>>("pagekeywords");
     var keywords = keywordsList != null ? string.Join(",", keywordsList) : "";
     

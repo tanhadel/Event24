@@ -4,6 +4,7 @@ using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 using Examarbeta.Models;
 using Examarbeta.Models.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace Examarbeta.Controller
 {

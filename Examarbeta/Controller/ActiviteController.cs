@@ -4,6 +4,9 @@ using Examarbeta.Models.ViewModels;
 using Examarbeta.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 
@@ -23,45 +26,16 @@ namespace Examarbeta.Controller
         }
         public override IActionResult Index()
         {
-            // Kontrollera om eventservice är korrekt injicerad
-            if (_eventService == null)
+            var activite = CurrentPage as Activite;
+            if (activite != null)
             {
-                _logger.LogError("Event service is not initialized.");
-                return StatusCode(500, "Internal server error");
+                var model = new ActiviteViewmodel(activite, _umbracoContextAccessor);
+                return View("activite", model);
             }
-
-            var createPage = CurrentPage as Activite;
-            if (createPage != null)
-            {
-                try
-                {
-                    // Hämta eventdata asynkront
-                    var events = _eventService.GetactivitesAsync().Result;
-                    if (events == null || !events.Any())
-                    {
-                        _logger.LogWarning("No events found.");
-                        return NotFound();
-                    }
-
-                    var model = new ActiviteViewmodel(createPage, _umbracoContextAccessor)
-                    {
-                        Events = events
-                    };
-
-                    return View("activite", model);
-                }
-                catch (Exception ex)
-                {
-                    // Logga eventuella undantag som uppstår
-                    _logger.LogError(ex, "An error occurred while retrieving events.");
-                    return StatusCode(500, "An error occurred while retrieving events.");
-                }
-            }
-
-            _logger.LogWarning("Activite page not found.");
-            return NotFound();
+            return null!;
         }
     }
+    
 
 
 }

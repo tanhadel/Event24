@@ -1,9 +1,14 @@
-﻿using Examarbeta.Interface;
+﻿
+using Examarbeta.Interface;
 using Examarbeta.Models.ViewModels;
-using System.ComponentModel.Design;
-using System.Reflection;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Web;
+using Umbraco.Extensions;
 
 namespace Examarbeta.Services;
 
@@ -11,7 +16,7 @@ public class EventService : IEventService
 {
     private readonly IUmbracoContextAccessor _umbracoContextAccessor;
     private readonly ILogger<EventService> _logger;
-    
+
     public EventService(IUmbracoContextAccessor umbracoContextAccessor, ILogger<EventService> logger)
     {
         _umbracoContextAccessor = umbracoContextAccessor;
@@ -42,8 +47,8 @@ public class EventService : IEventService
                     Title = e.Value<string>("title"),
                     EventDescription = e.Value<string>("eventDescription"),
                     EventPlace = e.Value<string>("eventPlace"),
-                    EventPrice = e.Value<int> ("eventprice"),
-                    EventCapacity=e.Value<int>("eventcapacity"),
+                    EventPrice = e.Value<int>("eventprice"),
+                    EventCapacity = e.Value<int>("eventcapacity"),
                     EventDate = e.Value<DateTime>("eventDate"),
                     EventImage = e.Value<IPublishedContent>("eventImage")?.Url() ?? string.Empty,
                     EventUrl = e.Url(),

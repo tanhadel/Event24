@@ -1,4 +1,7 @@
-﻿namespace Examarbeta.Models.ViewModels
+﻿using System;
+using System.Collections.Generic;
+
+namespace Examarbeta.Models.ViewModels
 {
     public class EventItemViewModel
     {
