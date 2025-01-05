@@ -1,4 +1,6 @@
 ﻿
+
+
 body {
     background-color: var(--color-white);
     margin: 0 auto;
@@ -60,3 +62,33 @@ body {
         }
     }
 }
+
+
+
+.main-title {
+    margin: 0; /* Ta bort eventuell yttre marginal */
+    padding: 0 10px; /* Sätt padding om nödvändigt */
+    font-size: 2.5rem; /* Storlek på rubriken */
+    font-weight: bold; /* Fet stil */
+    margin-bottom: 1rem; /* Avstånd under rubriken */
+    text-align: center; /* Centrerar rubriken */
+    line-height: 1.2; /* Radavstånd */
+}
+
+.long-text {
+    margin-bottom:0;
+    margin: 0; /* Ta bort eventuell yttre marginal */
+    font-size: 1rem; /* Mindre storlek för h7 */
+    color: var(--color-darkgrey); /* Färg på texten */
+    line-height: 1.6; /* Radavstånd för bättre läsbarhet */
+    margin-bottom: 1rem; /* Avstånd under texten */
+    text-align: center; /* Centrerar texten horisontellt */
+    padding: 0 10px; /* Lite padding på sidorna */
+    display: flex; /* Gör att elementet använder flexbox */
+    justify-content: center; /* Centrerar innehållet horisontellt */
+  
+    height: 100%; /* Sätt höjden till 100% för att möjliggöra vertikal centrering */
+}
+
+
+

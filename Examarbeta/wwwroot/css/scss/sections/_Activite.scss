@@ -1,116 +1,119 @@
-﻿.section-activity {
-    background-color: var(--color-lightgrey);
-    padding: 2em;
-    border-radius: 8px;
+﻿.event-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-whiteshades-90);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-family-vbp;
 
-    .event-card {
-        background-color: var(--color-white);
-        border: 1px solid var(--color-whiteshades-90);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 2em;
-        display: flex;
-        flex-direction: column;
+    @include tablet {
+        flex-direction: row;
+    }
+
+    .event-card-header {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 1.5em;
+        text-align: center;
+        font-family: $font-family-vbp;
+
+        h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-top: 0.5em;
+            font-size: 1rem;
+            color: var(--color-lightgrey);
+            font-family: $font-family-vbp;
+        }
+    }
+
+    .event-card-images {
+        display: flex; /* Gör så att bilderna ligger bredvid varandra */
+        justify-content: space-between; /* Jämnt avstånd mellan bilderna */
+        gap: 10px; /* Mellanrum mellan bilderna */
+        flex-wrap: wrap; /* Tillåter att bilderna bryts till nästa rad om det behövs */
+    }
+
+    .event-image {
+        width: 100%; /* Gör bilderna fylla hela bredden av sitt container */
+        max-width: 500px; /* Maximera bredden på bilderna om det behövs */
+        height: 200px; /* Sätt en grundhöjd */
+        object-fit: cover; /* Gör så att bilderna täcker utrymmet utan att förlora proportioner */
+        border-radius: 5px;
 
         @include tablet {
-            flex-direction: row;
+            height: 300px; /* Höj bilderna för tablet-enheter */
         }
 
-        .event-card-header {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: 1.5em;
-            text-align: center;
-
-            h3 {
-                margin: 0;
-                font-size: 1.5rem;
-            }
+        @include mobile {
+            height: 250px; /* Höj bilderna för mobil-enheter */
         }
+    }
 
-        .event-card-images {
-            width: 100%;
-            display: grid;
+
+    .event-card-info {
+        padding: 1.5em;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include tablet {
             grid-template-columns: 1fr 1fr;
-            gap: 0.5em;
-            padding: 1em;
-
-            img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                border-radius: 5px;
-
-                @include tablet {
-                    height: 200px;
-                }
-            }
+            gap: 1em;
         }
 
-        .event-card-info {
-            padding: 1.5em;
-            display: grid;
-            grid-template-columns: 1fr;
+        .info-container {
+            margin-bottom: 0em;
 
-            @include tablet {
-                grid-template-columns: 1fr 1fr;
-                gap: 1em;
-            }
-
-            .info-container {
-                margin-bottom: 1em;
-
-                p {
-                    margin: 0;
-                    font-size: 1rem;
-                    color: var(--color-darkgrey);
-                }
-            }
-
-            .event-card-description {
-                grid-column: span 2; /* Stretch över båda kolumner */
-                font-size: 0.95rem;
-                line-height: 1.5;
+            p {
+                margin: 0;
+                font-size: 1rem;
                 color: var(--color-darkgrey);
-                margin-top: 1em;
+                font-family: $font-family-vbp;
             }
         }
 
-        .btn-white {
-            background-color: var(--color-white);
-            border: 1px solid var(--color-primary);
-            color: var(--color-primary);
-            padding: 0.75em 1.5em;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
+        .event-details {
+            margin-bottom: 1em;
 
-            &:hover {
-                background-color: var(--color-primary);
-                color: var(--color-white);
+            p {
+                margin: 1em 0;
+                font-size: 1rem;
+                color: var(--color-darkgrey);
+                font-family: $font-family-vbp;
             }
+        }
+
+        .event-card-description {
+            grid-column: span 2;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: var(--color-darkgrey);
+            margin-top: 0em;
+            font-family: $font-family-vbp;
         }
     }
 }
 
-/* Responsiv styling */
 @include tablet {
-    .section-activity {
-        padding: 3em;
+    .event-card {
+        .event-card-info {
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+        }
     }
 }
 
 @include desktop {
-    .section-activity {
-        .event-card {
-            .event-card-info {
-                grid-template-columns: 1fr 1fr;
-                gap: 2em;
-            }
+    .event-card {
+        .event-card-info {
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
         }
     }
 }

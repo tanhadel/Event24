@@ -1,3 +1,4 @@
+using Examarbeta.Business.SchedueldJobs;
 using Examarbeta.Interface;
 using Examarbeta.Services;
 using Umbraco.Cms.Core.Services;
@@ -11,6 +12,9 @@ builder.CreateUmbracoBuilder()
     .AddComposers()
     .Build();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IEventsJob, EventsJob>();
+//builder.Services.AddScoped<IContentService, ContentService>();
+//builder.Services.AddScoped<IContentTypeService, ContentTypeService>();
 
 
 WebApplication app = builder.Build();

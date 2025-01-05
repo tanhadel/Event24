@@ -26,11 +26,19 @@
                                 <p class="text-gray30">@Html.Raw(Examarbeta.Helperfunction.HtmlHelperExtensions.RemoveHtmlTags(eventItem.EventDescription ?? string.Empty))</p>
                             </div>
                         </div>
-                        <a class="btn" href="@eventItem.EventUrl">@(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Gå till eventet" : "Go to Event")</a>
+                  
+
                     </div>
+                    <button class="btn" onclick="window.location.href='@eventItem.EventUrl'">
+                        @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "sv" ? "Gå till eventet" : "Go to Event")
+
+                    </button>
                 </div>
+                
             }
+            
         </div>
+      
     </section>
 }
 else

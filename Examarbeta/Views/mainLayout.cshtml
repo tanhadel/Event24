@@ -15,7 +15,7 @@
 
         <meta name="description" content=@Model.Value("pageDescription")/>
         <meta name="keywords" centent="@keywords"/>
-
+        <title>@pageTitle</title>
         <meta charset="UTF-8"> <!-- Anger teckenkodning -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Anpassar sidan till olika skärmar -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Förbättrad kompatibilitet med äldre versioner av IE -->
@@ -42,6 +42,8 @@
              @await Html.PartialAsync("partials/static/Footer.cshtml")
 
         </div>
-                
+@* 
+    <script type="module" src="/site.js"></script> *@
     </body>
+    
 </html>

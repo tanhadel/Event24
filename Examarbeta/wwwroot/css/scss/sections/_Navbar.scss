@@ -1,25 +1,25 @@
 ﻿/* Grundläggande header */
-header {
+/*header {
     background-color: #a38383;
     padding: 20px 0;
-}
+}*/
 
 /* Container för navbaren och sökfältet */
-.conainer {
+/*.conainer {
     display: flex;
     justify-content: center; 
     align-items: center; 
     width: 100%;
-}
+}*/
 
 /* Navbar */
-#navbar {
+/*#navbar {
     width: 100%; 
     text-align: center; 
-}
+}*/
 
 /* Styling för nav-menu */
-.nav-menu ul {
+/*.nav-menu ul {
     list-style-type: none; 
     margin: 0;
     padding: 0;
@@ -48,4 +48,184 @@ header {
 
 .search {
     margin-left: 20px;
+}*/
+
+
+
+header {
+    background-color: #a38383;
+    padding: 20px 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between; /* Se till att elementen sprids ut */
+        align-items: center;
+        width: 100%;
+        position: relative;
+        max-width: 1200px; /* För att hålla headern inom en viss bredd */
+        margin: 0 auto; /* Centrerar hela headern */
+
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #000; /* Lägg till en svart kant */
+            border-radius: 10px 20px 30px 40px;
+            object-fit: contain;
+        }
+
+
+        #navbar {
+            flex: 1; /* Detta gör att navbaren tar upp all tillgänglig bredd */
+            display: flex;
+            justify-content: center; /* Centrerar länkarna i navbaren */
+            align-items: center;
+
+            .nav-menu ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                li {
+                    margin: 0 10px;
+
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        padding: 5px 10px;
+                        display: block;
+                        text-align: center;
+                        transition: background-color 0.3s;
+                    }
+
+                    a:hover {
+                        background-color: dimgrey;
+                    }
+                }
+            }
+        }
+
+        .search {
+            flex: 0 0 auto; /* Se till att sökikonen inte växer eller krymper */
+            margin-left: 20px; /* För att ge lite avstånd mellan sökikonen och navbaren */
+            cursor: pointer;
+
+            i {
+                color: white;
+                font-size: 0em; /* Större storlek för att göra ikonen mer synlig */
+            }
+        }
+        /* Hamburgermeny */
+        .hamburger {
+            display: none; /* Döljs som standard */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            span {
+                display: block;
+                background: white;
+                height: 3px;
+                width: 25px;
+                margin: 4px 0;
+                transition: all 0.3s ease-in-out;
+            }
+
+            &.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            &.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            &.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+    }
+    // För mobil (skärmar under 768px): Visa hamburgaren och dölja navbaren
+    @include mobile {
+        .container {
+            flex-direction: column; /* Stapla elementen vertikalt */
+            align-items: center; /* Centrera alla element */
+
+            .hamburger {
+                display: flex;
+            }
+
+            #navbar {
+                display: none;
+            }
+
+            #navbar.active {
+                display: block; /* Visa när "active" läggs till */
+            }
+        }
+    }
+    // För skärmar från 768px och uppåt: Visa navbaren och dölja hamburgaren
+    @include tablet {
+        .container {
+            flex-direction: row; /* Håll alla element på en rad */
+            justify-content: space-between;
+
+            .hamburger {
+                display: none; /* Dölj hamburgaren */
+            }
+
+            #navbar {
+                display: flex;
+            }
+
+            .search {
+                font-size: 1.5em; /* Justera storlek på sökikonen */
+            }
+        }
+    }
+    // För större skärmar (laptop och uppåt)
+    @include laptop {
+        .container {
+            justify-content: space-between;
+
+            #navbar {
+                display: flex;
+            }
+        }
+    }
+    // För desktop och ultra-wide
+    @include desktop {
+        .container {
+            justify-content: space-between;
+
+            #navbar {
+                .nav-menu ul {
+                    justify-content: space-between;
+                }
+
+                .nav-menu a {
+                    font-size: 1.1em;
+                }
+            }
+        }
+    }
+
+    @include ultra-wide {
+        .container {
+            justify-content: space-around;
+
+            #navbar {
+                .nav-menu ul {
+                    justify-content: space-around;
+                }
+
+                .nav-menu a {
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
 }

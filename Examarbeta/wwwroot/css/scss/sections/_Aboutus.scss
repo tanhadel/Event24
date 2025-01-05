@@ -1,93 +1,96 @@
-﻿.about-us-image-container {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-}
-
-
-/* Grundläggande header */
-.about-us-section header {
-    background-color: #a38383; /* Samma färg som på startsidan */
-    padding: 20px 0;
-}
-
-/* Container för content och navbar */
-.about-us-section .container {
+﻿.about-us-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
 
-/* Styling för nav-menu */
-.about-us-section #navbar {
-    width: 100%;
-    text-align: center;
-}
-
-/* Styling för nav-menu */
-.about-us-section .nav-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.about-us-section .nav-menu li {
-    margin: 0 10px;
-}
-
-.about-us-section .nav-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    display: block;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-/* Hover-effekt för länkar */
-.about-us-section .nav-menu a:hover {
-    background-color: dimgrey;
-}
-
-/* Styling för About Us content */
-/* Grundläggande header-styling för About-sidan */
-.about-us-section header {
-    background-color: transparent; /* Ingen bakgrundsfärg */
-    color: black; /* Svart text för neutral look */
-    padding: 20px 0; /* Behåll padding för spacing */
-    text-align: center; /* Centrera texten */
-    font-size: 1.5rem; /* Justera storlek efter behov */
-    font-weight: normal; /* Normal vikt för text */
-    border: none; /* Ta bort eventuella kantlinjer */
-}
-
-
-/* Styling för bild */
-.about-us-image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsiv design */
-@media (max-width: 768px) {
-    .about-us-section {
+    header {
+        font-size: $font-size-xs;
+        font-family: $font-family-vbp;
+        background-color: #fff;
+        word-wrap: break-word;
+        white-space: normal;
+        flex: 1;
+        max-width: 80%;
         padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 5px 21px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
     }
 
-    .about-us-section h1 {
-        font-size: 2rem;
-    }
-
-    .about-us-section .nav-menu ul {
+    @include mobile {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        header {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
     }
 
-    .about-us-section .nav-menu a {
-        padding: 12px 18px;
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        header {
+            max-width: 45%; /* Ställ in en maxbredd för header på tablet */
+        }
+    }
+
+    @include laptop {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        header {
+            max-width: 40%; /* Anpassa ytterligare på laptop för att minska bredden */
+        }
+    }
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 }
+
+.about-us-images-container {
+    display: grid; /* Byter till grid-layout */
+    grid-template-columns: repeat(3, 1fr); /* Tre kolumner av lika stor bredd */
+   
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 100%; /* Gör bilderna responsiva */
+        max-width: 300px; /* Maxbredd på bilderna */
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @include mobile {
+        grid-template-columns: 2fr; /* På mobil, visa en bild per rad */
+    }
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr); /* På tablet, visa två bilder per rad */
+    }
+
+    @include laptop {
+        grid-template-columns: repeat(4, 1fr); /* På laptop, tre bilder per rad */
+    }
+
+    @include desktop {
+        grid-template-columns: repeat(4, 1fr); /* På desktop, tre bilder per rad */
+    }
+}
+
+

@@ -1,9 +1,34 @@
-﻿
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{
+    // Hämta logotypen från rotnoden (för att visa den på alla sidor)
+    var rootNode = Umbraco.ContentAtRoot().FirstOrDefault(); 
+    var siteLogo = rootNode?.Value<IPublishedContent>("logo"); 
+}
+
 <footer class="footer">
     <div class="footer-container">
+        <!-- Footer Logo Section -->
         <div class="footer-logo">
-            <a href="#">Your Logo</a>
+            @if (siteLogo != null)
+            {
+                <a href="/">
+                    <img src="@siteLogo.Url()" alt="Site Logo" />
+                </a>
+            }
+            else
+            {
+                <a href="/">Your Logo</a> <!-- Fallback om ingen logotyp finns -->
+            }
         </div>
+
+        <!-- Footer Navigation -->
         <div class="footer-nav">
             <ul>
                 <li><a href="/">Home</a></li>
@@ -12,6 +37,8 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
+
+        <!-- Footer Social Icons -->
         <div class="footer-social">
             <a href="#" class="social-icon">Facebook</a>
             <a href="#" class="social-icon">Twitter</a>
@@ -19,6 +46,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; 2024 EventStockholm. All rights reserved.</p>
     </div>
 </footer>
+

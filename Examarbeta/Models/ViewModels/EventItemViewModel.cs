@@ -19,6 +19,7 @@ namespace Examarbeta.Models.ViewModels
         public string EventInfolongtext{ get; set; }
 
         public string EventUrl { get; set; }
-
+        public string EventLogo { get; set; }
+        public string textlong { get; set; }
     }
 }

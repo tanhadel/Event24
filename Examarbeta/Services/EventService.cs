@@ -53,12 +53,15 @@ public class EventService : IEventService
                     EventImage = e.Value<IPublishedContent>("eventImage")?.Url() ?? string.Empty,
                     EventUrl = e.Url(),
                     AltImageText = e.Value<string>("altImageText"),
+                    textlong = e.Value<string>("textLong"),
                     EventOwner = e.Value<string>("eventOwner"),
                     AdditionalImages = e.Value<IEnumerable<IPublishedContent>>("additionalImages")
                         ?.Select(img => img.Url())
                         .ToList() ?? new List<string>(),
                     EventsInfo = e.Value<string>("eventsInfo"),
-                    EventInfolongtext = e.Value<string>("eventInfoLongText")
+                    EventInfolongtext = e.Value<string>("eventInfoLongText"),
+                    
+
                 })
                 .ToList();
 

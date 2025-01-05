@@ -6,24 +6,51 @@
 @inject IPublishedValueFallback PublishedValueFallback
 @inject IPublishedUrlProvider PublishedUrlProvider
 
-
-@{ var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); }
+@{
+    // Hämta logotypen från rotnoden (för att visa den på alla sidor)
+    var rootNode = Umbraco.ContentAtRoot().FirstOrDefault(); // Hämtar första innehåll på rotnoden
+    var siteLogo = rootNode?.Value<IPublishedContent>("logo"); // Hämtar logo från rotnoden
+    var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
+}
 
 <header>
-    <div class="conainer">
-        <div id="navbar">
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo">
+            @if (siteLogo != null)
+            {
+                <a href="/">
+                    <img src="@siteLogo.Url()" alt="Site Logo" />
+                </a>
+            }
+            else
+            {
+                <h1>My Website</h1> <!-- Fallback om ingen logotyp finns -->
+            }
+        </div>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navbar -->
+        <div id="navbar" class="navbar-nav">
             <nav class="nav-menu">
                 <ul>
-                    
+                    <!-- Static Home Link -->
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    
+
+                    <!-- Dynamic Links -->
                     @if (selection?.Length > 0)
                     {
                         @foreach (var item in selection)
                         {
-                            <li class="@(item.IsAncestorOrSelf(Model) ? "nva-link activ" : "nav-link")">
+                            <li class="@(item.IsAncestorOrSelf(Model) ? "nav-link active" : "nav-link")">
                                 <a href="@item.Url(PublishedUrlProvider)">@item.Name</a>
                             </li>
                         }
@@ -31,12 +58,24 @@
                 </ul>
             </nav>
         </div>
+
+        <!-- Search Icon -->
+        <!-- Search Icon -->
         <div class="search">
-            <i class="fa-regular fa-magnifying-galss"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="search-input" placeholder="Sök..." />
         </div>
 
     </div>
 </header>
+
+
+
+<script type="module" src="/Scripts/site.js"></script>
+
+
+
+
 
 
 

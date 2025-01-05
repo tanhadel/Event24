@@ -1,20 +1,19 @@
 ﻿@using Examarbeta.Models.ViewModels
 @using Umbraco.Cms.Web.Common.PublishedModels
-
 @inherits UmbracoViewPage<AboutusViewModel>
 @{
     Layout = "mainLayout.cshtml";
 
-    var aboutUsImage = Model.Content?.Value<IPublishedContent>("aboutUsImage");
-    string imageUrl = aboutUsImage?.Url() ?? string.Empty;
-    string imageAlt = Model.Content?.Value<string>("aboutUsImageAlt") ?? "About Us Image";
+    // Hämta listan av bilder
+    var aboutUsImages = Model.Content?.Value<IEnumerable<IPublishedContent>>("aboutUsImage") ?? Enumerable.Empty<IPublishedContent>();
 }
 
 <section class="about-us-section">
     <header>
         @if (Model.Content != null)
         {
-            <h1>@Html.Raw(Model.Content.AboutUsDescription)</h1>
+            <h7>@Html.Raw(Model.Content.AboutUsDescription)</h7>
+            <p>@Html.Raw(Model.Content.Discriptionsaboutus)</p>
         }
         else
         {
@@ -22,14 +21,21 @@
         }
     </header>
 
-    @if (!string.IsNullOrEmpty(imageUrl))
+    @if (aboutUsImages.Any())
     {
-        <figure class="about-us-image-container">
-            <img src="@imageUrl" alt="@imageAlt" />
-        </figure>
+        <div class="about-us-images-container">
+            @foreach (var image in aboutUsImages)
+            {
+                string imageUrl = image.Url();
+                string imageAlt = "About Us Image";
+
+                <img src="@imageUrl" alt="@imageAlt" />
+            }
+        </div>
     }
     else
     {
-        <p>No image available.</p>
+        <p>No images available.</p>
     }
 </section>
+

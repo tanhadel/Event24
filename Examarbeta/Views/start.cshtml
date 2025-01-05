@@ -4,7 +4,13 @@
 @{
 	Layout = "mainLayout.cshtml";
 }
-<h1>@Html.Raw(Model.Content.Title)</h1>
+<div class="Header-start">
+    <h1 class="main-title">@Html.Raw(Model.Content.Title)</h1>
+    <h7 class="long-text">@Html.Raw(Model.Content.TextLong)</h7>
+
+</div>
+
+
 <div class="container">
     @await Component.InvokeAsync("EventCard")
 
