@@ -1309,3 +1309,12 @@ min-height: 450px;*/ /* Ställ in en minimumhöjd */
   outline: none; /* Ta bort den vanliga fokusringen */
   box-shadow: 0 0 0 2px #a38383; /* Lägg till en egen fokusring för bättre tillgänglighet */
 }
+
+#calendar {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 		<Content Remove="compilerconfig.json" />
+		<Content Remove="Views\calenderCshtml.cshtml" />
 	</ItemGroup>
 
 	<ItemGroup>

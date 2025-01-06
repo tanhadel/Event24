@@ -11,7 +11,7 @@ namespace Examarbeta.Business.Composers
         {
             RecurringJob.AddOrUpdate<IEventsJob>(
                 "Remove Events", x => x.RemoveEvents(null), Cron
-                .Monthly);
+                .Weekly);
 
             Console.WriteLine("Scheduled job 'Remove Events' has been registered.");
         }

@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using System.Globalization
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = null;
@@ -8,42 +9,63 @@
     
 }
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html lang="@CultureInfo.CurrentUICulture.Name">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="@Model.Value("pageDescription")" />
+    <meta name="keywords" content="@keywords" />
+    <title>@pageTitle</title>
+    <meta charset="UTF-8"> <!-- Anger teckenkodning -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Anpassar sidan till olika skärmar -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Förbättrad kompatibilitet med äldre versioner av IE -->
+    <link rel="stylesheet" href="/css/site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/2e468f9195.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet" />
 
-        <meta charset="UTF-8">
+    <!-- Include qTip2 CSS for tooltips -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" rel="stylesheet" />
 
-        <meta name="description" content=@Model.Value("pageDescription")/>
-        <meta name="keywords" centent="@keywords"/>
-        <title>@pageTitle</title>
-        <meta charset="UTF-8"> <!-- Anger teckenkodning -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Anpassar sidan till olika skärmar -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Förbättrad kompatibilitet med äldre versioner av IE -->
-        <meta description" content="Description of your page for better SEO."> <!-- SEO-beskrivning -->    
-        <link rel="stylesheet" href="/css/site.css">
-        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    	<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="https://kit.fontawesome.com/2e468f9195.js" crossorigin="anonymous"></script>
-        
-    </head>
-    <body>
+</head>
+<body>
 
-        <div class="header">
+    <div class="header">
         @await Html.PartialAsync("partials/static/header.cshtml")
-        </div>
-        <div class="wrapper">
-            <main class="main-content">
-                 @RenderBody()
-            </main>
-        </div>
-        <div class="footerall">
-             @await Html.PartialAsync("partials/static/Footer.cshtml")
+    </div>
+    <div class="wrapper">
+        <main class="main-content">
+            @RenderBody()  
+            
+            <div id="calendar"></div> <!-- Calendar div -->
+        </main>
+    </div>
+    <div class="footerall">
+        @await Html.PartialAsync("partials/static/Footer.cshtml")
+    </div>
 
-        </div>
-@* 
-    <script type="module" src="/site.js"></script> *@
-    </body>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+
+    <!-- Initialize FullCalendar -->
+   
+     <script>
+              document.addEventListener("DOMContentLoaded", function () {
+            var calendarEl = document.getElementById("calendar");
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: "dayGridMonth", // Visning som månad
+                locale: "sv",               // Svenskt språk
+                events: []                  // Ingen data för events
+            });
+
+            calendar.render(); // Rendera kalendern
+        });
+
+    </script>
+
+</body>
 </html>

@@ -1,4 +1,5 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using System.Globalization
 @using Umbraco.Cms.Core
 @using Umbraco.Cms.Core.Models.PublishedContent
 @using Umbraco.Cms.Core.Routing
@@ -17,7 +18,7 @@
     <div class="container">
         <!-- Logo Section -->
         <div class="logo">
-            @if (siteLogo != null)
+            @if (siteLogo != null) 
             {
                 <a href="/">
                     <img src="@siteLogo.Url()" alt="Site Logo" />
@@ -40,10 +41,27 @@
         <div id="navbar" class="navbar-nav">
             <nav class="nav-menu">
                 <ul>
-                    <!-- Static Home Link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
+                    @{
+                        // Fetch the root content dynamically
+                        var rootContent = Umbraco.ContentAtRoot().FirstOrDefault();
+                        var currentCulture = CultureInfo.CurrentCulture.Name;
+                    }
+
+                    <!-- Dynamically fetched Home Link -->
+                    @if (rootContent != null)
+                    {
+                        <li class="nav-item @(Context.Request.Path == rootContent.Url() ? "active" : "")">
+                            <a class="nav-link" href="@rootContent.Url()">
+                                @rootContent.Name(currentCulture)
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                    }
 
                     <!-- Dynamic Links -->
                     @if (selection?.Length > 0)
@@ -59,7 +77,7 @@
             </nav>
         </div>
 
-        <!-- Search Icon -->
+
         <!-- Search Icon -->
         <div class="search">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -68,9 +86,6 @@
 
     </div>
 </header>
-
-
-
 <script type="module" src="/Scripts/site.js"></script>
 
 
